@@ -1,0 +1,188 @@
+/* Genel Arka Plan */
+QWidget {
+    background-color: white;
+}
+
+/* Etiketler (QLabel) */
+QLabel {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Butonlar */
+QPushButton {
+    background-color: #004080;  /* Koyu Mavi */
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #003366;
+    padding: 10px;
+    min-width: 150px;
+    min-height: 40px;
+}
+
+/* Buton Hover (Üzerine gelindiğinde) */
+QPushButton:hover {
+    background-color: #0055b3; /* Açık Mavi */
+    border: 2px solid #00264d;
+}
+
+/* Buton Basılınca */
+QPushButton:pressed {
+    background-color: #003366; /* Daha koyu mavi */
+}
+
+/* Sorulacak Soru Sayısı (QSpinBox) */
+QSpinBox {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    border: 2px solid #003366;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* QSpinBox Arttırma ve Azaltma Okları */
+QSpinBox::up-button, QSpinBox::down-button {
+    border: 1px solid #003366;
+    background-color: #004080;
+    border-radius: 5px;
+    width: 20px;  /* Buton genişliğini arttırdık */
+    height: 15px;  /* Buton yüksekliğini arttırdık */
+}
+
+/* Radio Butonlar */
+QRadioButton {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Radio Butonlar Hover */
+QRadioButton:hover {
+    color: #004080;
+}
+
+/* Cevapla Butonu */
+QPushButton#answer_button {
+    background-color: #004080;  /* Koyu Mavi */
+    border: 2px solid #003366;
+}
+
+/* Cevapla Butonu Hover */
+QPushButton#answer_button:hover {
+    background-color: #0055b3;
+    border: 2px solid #00264d;
+}
+
+/* Geri Dön Butonları */
+QPushButton#back_button, QPushButton#back_button1 {
+    background-color: #800000;  /* Koyu Kırmızı */
+    border: 2px solid #660000;
+}
+
+/* Geri Dön Butonları Hover */
+QPushButton#back_button:hover, QPushButton#back_button1:hover {
+    background-color: #b30000;
+}
+
+/* Geri Dön Butonları Basılınca */
+QPushButton#back_button:pressed, QPushButton#back_button1:pressed {
+    background-color: #660000;
+}
+
+/* Grup Kutusu (QGroupBox) */
+QGroupBox {
+    border: 2px solid #003366;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Grup Kutusu Başlık */
+QGroupBox:title {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+/* Görsel Etiket (QLabel) */
+QLabel#image_label {
+    border: 2px solid #003366;
+    padding: 10px;
+    max-width: 300px;
+    max-height: 300px;
+    display: block;
+}
+
+/* Tüm Widget'lar arasında hizalama */
+QVBoxLayout {
+    spacing: 10px;
+}
+/* Bilgilendirme Mesajları (QMessageBox) */
+QMessageBox {
+    background-color: white;
+    border: 2px solid #004080;  /* Koyu Mavi Çerçeve */
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    padding: 20px;
+    min-width: 300px;
+}
+
+/* Mesaj Başlıkları */
+QMessageBox QLabel {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+/* Mesaj İçeriği */
+QMessageBox QLineEdit, QMessageBox QTextEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid #003366;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+/* Mesaj Kutusundaki Butonlar */
+QMessageBox QPushButton {
+    background-color: #004080;  /* Koyu Mavi */
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #003366;
+    padding: 10px;
+    min-width: 100px;
+}
+
+/* Buton Hover (Üzerine gelindiğinde) */
+QMessageBox QPushButton:hover {
+    background-color: #0055b3; /* Açık Mavi */
+    border: 2px solid #00264d;
+}
+
+/* Buton Basılınca */
+QMessageBox QPushButton:pressed {
+    background-color: #003366; /* Daha koyu mavi */
+}
+
+/* Mesaj Kapanma Butonu */
+QMessageBox QPushButton#close {
+    background-color: #b30000; /* Kırmızı */
+    border: 2px solid #660000;
+}
+
+/* Kapanma Butonu Hover */
+QMessageBox QPushButton#close:hover {
+    background-color: #ff6666; /* Açık kırmızı */
+}
+
