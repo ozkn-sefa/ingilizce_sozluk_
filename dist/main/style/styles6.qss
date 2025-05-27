@@ -1,0 +1,103 @@
+/* Genel Arka Plan */
+QWidget {
+    background-color: white;
+}
+
+/* Etiketler (QLabel) */
+QLabel {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Butonlar */
+QPushButton {
+    background-color: #004080;  /* Koyu Mavi */
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #003366;
+    padding: 10px;
+    min-width: 250px;
+    min-height: 40px;
+}
+
+/* Buton Hover (Üzerine gelindiğinde) */
+QPushButton:hover {
+    background-color: #0055b3; /* Açık Mavi */
+    border: 2px solid #00264d;
+}
+
+/* Buton Basılınca */
+QPushButton:pressed {
+    background-color: #003366; /* Daha koyu mavi */
+}
+
+/* Kelime Havuzu Butonu */
+QPushButton#btn_kelime_havuzu {
+    background-color: #ff6600;  /* Turuncu */
+    border: 2px solid #cc5200;
+}
+
+/* Kelime Havuzu Butonu Hover */
+QPushButton#btn_kelime_havuzu:hover {
+    background-color: #ff8533;
+}
+
+/* Info Butonu */
+QPushButton#btn_info {
+    background-color: #009900;  /* Yeşil */
+    border: 2px solid #006600;
+}
+
+/* Info Butonu Hover */
+QPushButton#btn_info:hover {
+    background-color: #00cc00;
+}
+
+/* Geri Dön Butonu */
+QPushButton#btn_geri_don, QPushButton#btn_ana_menu {
+    background-color: #800000;  /* Koyu Kırmızı */
+    border: 2px solid #660000;
+}
+
+QPushButton#btn_geri_don:hover, QPushButton#btn_ana_menu:hover {
+    background-color: #b30000;
+}
+
+QPushButton#btn_geri_don:pressed, QPushButton#btn_ana_menu:pressed {
+    background-color: #660000;
+}
+
+/* Tablo (QTableWidget) */
+QTableWidget {
+    border: 2px solid #004080;
+    background-color: white;
+    color: black;
+    gridline-color: #004080;
+    font-size: 14px;
+}
+
+/* Tablo Başlıkları */
+QHeaderView::section {
+    background-color: #004080;
+    color: white;
+    padding: 8px;
+    border: 1px solid #003366;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Tablo Hücreleri */
+QTableWidget QTableWidgetItem {
+    padding: 5px;
+    border: 1px solid #cccccc;
+}
+
+/* Bilgilendirme Mesajları */
+QMessageBox {
+    background-color: white;
+    border: 2px solid #004080;
+}
