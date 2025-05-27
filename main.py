@@ -4,7 +4,7 @@ from PyQt6.QtGui import QIcon
 from login import LoginWidget
 from register import RegisterWidget
 from reset_password import ResetPasswordWidget
-from anasayfa1 import MenuWidget
+from main_menu import MenuWidget
 
 
 class MainApp(QStackedWidget):

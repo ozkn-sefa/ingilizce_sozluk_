@@ -272,7 +272,7 @@ class ExamSetupWidget(QWidget):
             self.save_exam_results()
             QMessageBox.information(self, 'Sonuçlar', result_message)
         except Exception as e:
-            QMessageBox.critical(self, 'Hata', f'Sınav kaydedilirken hata oluştu: {str(e)}')
+            QMessageBox.critical(self, 'Hata', f'Sınav kaydedilirken hata oluştu:')
         finally:
             self.go_back_to_main_menu()
 
@@ -403,7 +403,7 @@ class ExamSetupWidget(QWidget):
             QMessageBox.critical(
                 self,
                 'Veritabanı Hatası',
-                f'Sınav kaydedilirken hata oluştu:\n{str(e)}'
+                f'Sınav kaydedilirken hata oluştu'
             )
             self.conn.rollback()
             return False
