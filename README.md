@@ -135,8 +135,4 @@ Proje kök dizininde şu klasörleri oluşturun:
   - `.env` dosyasındaki `OPENROUTER_API_KEY` anahtarını kontrol edin.
   - İnternet bağlantınızı doğrulayın.
 
-## Lisans
-Bu proje MIT Lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
 
-## İletişim
-Destek veya sorularınız için proje geliştiricileriyle iletişime geçebilirsiniz.
