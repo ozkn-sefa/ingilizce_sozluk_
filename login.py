@@ -98,7 +98,7 @@ class LoginWidget(QWidget):
                     QMessageBox.warning(self, 'Hata', 'Kullanıcı adı veya şifre yanlış!')
         except Exception as e:
             QMessageBox.critical(self, 'Veritabanı Hatası',
-                                 f'Veritabanı bağlantısı sırasında bir hata oluştu')
+                                 f'Veritabanı bağlantısı sırasında bir hata oluştu: {str(e)}')
         finally:
             cursor.close()
             conn.close()

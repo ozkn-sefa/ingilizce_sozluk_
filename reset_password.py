@@ -107,7 +107,7 @@ class ResetPasswordWidget(QWidget):
             QMessageBox.critical(
                 self,
                 'Veritabanı Hatası',
-                f'Veritabanı hatası oluştu:'
+                f'Veritabanı hatası oluştu: {str(e)}'
             )
         finally:
             if 'cursor' in locals():

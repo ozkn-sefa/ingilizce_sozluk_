@@ -64,7 +64,7 @@ class SettingsWidget(QWidget):
             return kelimeler
 
         except pyodbc.Error as e:
-            print('Veritabanı bağlantı hatası:', )
+            print('Veritabanı bağlantı hatası:', e)
             return []
 
     def show_kelime_havuzu(self):

@@ -99,7 +99,7 @@ class RegisterWidget(QWidget):
             self.main_app.setCurrentWidget(self.main_app.login_widget)
 
         except Exception as e:
-            QMessageBox.critical(self, 'Hata', f'Bir hata oluştu:')
+            QMessageBox.critical(self, 'Hata', f'Bir hata oluştu: {e}')
             if 'cursor' in locals():
                 cursor.close()
             if 'conn' in locals():
