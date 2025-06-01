@@ -1,9 +1,9 @@
-from PyQt6.QtCore import Qt
-from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QLabel,
-                             QPushButton, QTableWidget, QTableWidgetItem)
+                             QPushButton, QTableWidget, QTableWidgetItem, QTextBrowser)
 import pyodbc
-
+import markdown
+import os
 
 class SettingsWidget(QWidget):
     geri_don_signal = pyqtSignal()
@@ -33,16 +33,19 @@ class SettingsWidget(QWidget):
         self.btn_ana_menu.setFixedSize(250, 40)
         self.btn_ana_menu.clicked.connect(self.return_to_menu)
 
-        self.info_label = QLabel('Bu uygulama, kelimeleri veritabanından çekerek listeleme işlevi görür.')
-        self.info_label.setVisible(False)
+        # QLabel yerine QTextBrowser
+        self.info_browser = QTextBrowser()
+        self.info_browser.setMinimumSize(1400, 700)
+
+        self.info_browser.setVisible(False)
 
         self.table = QTableWidget()
         self.table.setVisible(False)
-        self.layout.addWidget(self.table)
 
+        self.layout.addWidget(self.table)
         self.layout.addWidget(self.btn_kelime_havuzu, alignment=Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.btn_info, alignment=Qt.AlignmentFlag.AlignCenter)
-        self.layout.addWidget(self.info_label, alignment=Qt.AlignmentFlag.AlignCenter)
+        self.layout.addWidget(self.info_browser, alignment=Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.btn_geri_don, alignment=Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.btn_ana_menu, alignment=Qt.AlignmentFlag.AlignCenter)
 
@@ -64,7 +67,7 @@ class SettingsWidget(QWidget):
             return kelimeler
 
         except pyodbc.Error as e:
-            print('Veritabanı bağlantı hatası:', )
+            print('Veritabanı bağlantı hatası:', e)
             return []
 
     def show_kelime_havuzu(self):
@@ -82,35 +85,43 @@ class SettingsWidget(QWidget):
         for i, kelime in enumerate(kelimeler):
             self.table.setItem(i, 0, QTableWidgetItem(str(kelime[0])))
             self.table.setItem(i, 1, QTableWidgetItem(str(kelime[1])))
-            self.table.setColumnWidth(1, 150)
             self.table.setColumnWidth(0, 150)
+            self.table.setColumnWidth(1, 150)
 
         self.table.setVisible(True)
         self.btn_kelime_havuzu.setVisible(False)
         self.btn_info.setVisible(False)
-        self.info_label.setVisible(False)
+        self.info_browser.setVisible(False)
         self.btn_geri_don.setVisible(True)
         self.btn_ana_menu.setVisible(False)
 
     def show_info(self):
-        print('Info ekranı açılıyor...')
-        self.info_label.setVisible(True)
+        readme_path = r"C:\Users\ozkan\Desktop\p1\README.markdown"  # Raw string ile dosya yolu
+
+        if os.path.exists(readme_path):
+            with open(readme_path, "r", encoding="utf-8") as f:
+                md_text = f.read()
+
+            # Markdown'u HTML'ye çevir
+            html = markdown.markdown(md_text)
+
+            # QTextBrowser içine HTML olarak koy
+            self.info_browser.setHtml(html)
+        else:
+            self.info_browser.setText("README.md dosyası bulunamadı!")
+
+        # Widget görünürlüklerini ayarla
+        self.info_browser.setVisible(True)
         self.btn_kelime_havuzu.setVisible(False)
         self.btn_info.setVisible(False)
-
-        if self.table:
-            self.table.setVisible(False)
-
+        self.table.setVisible(False)
         self.btn_geri_don.setVisible(True)
         self.btn_ana_menu.setVisible(False)
 
     def show_main(self):
         print('Ana ekrana dönülüyor...')
-
-        if self.table:
-            self.table.setVisible(False)
-
-        self.info_label.setVisible(False)
+        self.table.setVisible(False)
+        self.info_browser.setVisible(False)
         self.btn_kelime_havuzu.setVisible(True)
         self.btn_info.setVisible(True)
         self.btn_geri_don.setVisible(False)
@@ -120,11 +131,8 @@ class SettingsWidget(QWidget):
         print('Menüye dönülüyor...')
         self.btn_kelime_havuzu.setVisible(False)
         self.btn_info.setVisible(False)
-
-        if self.table:
-            self.table.setVisible(False)
-
-        self.info_label.setVisible(False)
+        self.table.setVisible(False)
+        self.info_browser.setVisible(False)
         self.geri_don_signal.emit()
         self.btn_geri_don.setVisible(False)
         self.btn_ana_menu.setVisible(False)

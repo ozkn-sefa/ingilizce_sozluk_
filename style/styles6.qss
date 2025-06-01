@@ -3,13 +3,7 @@ QWidget {
     background-color: white;
 }
 
-/* Etiketler (QLabel) */
-QLabel {
-    font-weight: bold;
-    color: black;
-    font-size: 16px;
-    text-align: center;
-}
+
 
 /* Butonlar */
 QPushButton {
