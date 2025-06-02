@@ -95,8 +95,10 @@ class SettingsWidget(QWidget):
         self.btn_geri_don.setVisible(True)
         self.btn_ana_menu.setVisible(False)
 
-    def show_info(self):
-        readme_path = r"C:\Users\ozkan\Desktop\p1\README.markdown"  # Raw string ile dosya yolu
+        def show_info(self):
+        # Kodun bulunduğu klasörü al
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        readme_path = os.path.join(base_dir, "README.markdown")
 
         if os.path.exists(readme_path):
             with open(readme_path, "r", encoding="utf-8") as f:
@@ -108,7 +110,7 @@ class SettingsWidget(QWidget):
             # QTextBrowser içine HTML olarak koy
             self.info_browser.setHtml(html)
         else:
-            self.info_browser.setText("README.md dosyası bulunamadı!")
+            self.info_browser.setText("README.markdown dosyası bulunamadı!")
 
         # Widget görünürlüklerini ayarla
         self.info_browser.setVisible(True)
@@ -117,7 +119,6 @@ class SettingsWidget(QWidget):
         self.table.setVisible(False)
         self.btn_geri_don.setVisible(True)
         self.btn_ana_menu.setVisible(False)
-
     def show_main(self):
         print('Ana ekrana dönülüyor...')
         self.table.setVisible(False)
