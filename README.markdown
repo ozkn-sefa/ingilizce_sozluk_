@@ -65,7 +65,7 @@ pip install pyqt6 pyodbc requests python-dotenv reportlab markdown
 ### 1. Python ve Kütüphane Kurulumu
 Gerekli Python kütüphanelerini kurun:
 ```bash
-pip install pyqt6 pyodbc requests python-dotenv reportlab
+pip install pyqt6 pyodbc requests python-dotenv reportlab markdown
 ```
 
 ### 2. Veritabanı Kurulumu
