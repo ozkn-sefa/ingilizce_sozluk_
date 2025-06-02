@@ -47,7 +47,7 @@ Bu, İngilizce kelime öğrenme sürecini kolaylaştırmak için tasarlanmış, 
 
 Gerekli kütüphaneleri kurmak için:
 ```bash
-pip install pyqt6 pyodbc requests python-dotenv reportlab
+pip install pyqt6 pyodbc requests python-dotenv reportlab markdown
 ```
 
 ### Donanım Gereksinimleri
